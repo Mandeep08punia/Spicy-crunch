@@ -3,8 +3,9 @@ import { Grid } from '@material-ui/core'
 import IndividualProduct from './IndividualProduct';
 
 const products=[
-    {id:1,name:"Pizza", description:'creamy Pizza',price:'Rs300'},
-    {id:2,name:"Burger", description:'creamy Burger',price:'Rs80'},
+    {id:1,name:"Spicy Sausage Pizza", description:'Spicy Sausage Pizza is loaded with onion, peppers, and chili oil on a homemade crust',price:'Rs300',image:'https://i.pinimg.com/originals/80/6f/e4/806fe49c3d607a5236f0ca65c609c5c9.jpg'},
+    {id:2,name:"Spicy Chicken Burger", description:'Juicy chicken burgers with spicy piquanté peppers and herbs served on toasted buns is a family..',price:'Rs80',image:'https://simply-delicious-food.com/wp-content/uploads/2018/11/spicy-chicken-burgers-3.jpg'},
+    {id:3,name:"Spicy Mushroom 'Cheese' Pizza", description:'This vegan Jalapeno Popper Pizza is here to push you through the rest of the week!❤️',price:'Rs300',image:'https://data.thefeedfeed.com/static/2020/01/27/15801451805e2f1a1c39457.jpg'}
 ];
 function Products() {
     return (
