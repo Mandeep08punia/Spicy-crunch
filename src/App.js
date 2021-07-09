@@ -3,6 +3,7 @@ import './App.css';
 import Products from './products/Products';
 import Navbar from './components/Navbar/Navbar'
 import {commerce} from './lib/com_prod'
+import Cart from './components/Cart/Cart';
 
 function App() {
   const [products,setProducts]=useState([]);
@@ -28,8 +29,8 @@ console.log(cart);
   return (
     <div className="App">
     <Navbar totalItems={cart.total_items}/>
-      Spicy Crunch 🍕
-      <Products products={products} onAddToCart={AddToCart}/>
+      <Cart cart={cart}/>
+     {/* <Products products={products} onAddToCart={AddToCart}/>*/}
     </div>
   );
 }
