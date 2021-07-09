@@ -3,7 +3,7 @@ import { Grid } from '@material-ui/core'
 import IndividualProduct from './IndividualProduct';
 import useStyles from './products_styles'
 
-function Products({products}) {
+function Products({products,onAddToCart}) {
     const classes=useStyles();
     return (
         <main className={classes.content}>
@@ -12,7 +12,7 @@ function Products({products}) {
                 {
                     products.map((product)=>(
                         <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
-                            <IndividualProduct product={product}/>
+                            <IndividualProduct product={product} onAddToCart={onAddToCart}/>
                         </Grid>
                     ))
                 }

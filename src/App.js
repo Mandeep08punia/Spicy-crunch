@@ -6,19 +6,30 @@ import {commerce} from './lib/com_prod'
 
 function App() {
   const [products,setProducts]=useState([]);
-  const fetchProducts=async()=>{
+  const [cart,setCart]=useState({});
+  const ProductsAvail=async()=>{
     const {data}=await commerce.products.list();
     setProducts(data);
   }
+  const fetchCartState=async()=>{
+    const cart=await commerce.cart.retrieve();
+    setCart(cart);
+  }
+  const AddToCart=async(productId,quantity)=>{
+    const item=await commerce.cart.add(productId,quantity);
+    setCart(item.cart)
+  }
   useEffect(()=>{
-    fetchProducts();
+    ProductsAvail();
+    fetchCartState();
   },[])
-  console.log(products);
+  
+console.log(cart);
   return (
     <div className="App">
-    <Navbar/>
+    <Navbar totalItems={cart.total_items}/>
       Spicy Crunch 🍕
-      <Products products={products}/>
+      <Products products={products} onAddToCart={AddToCart}/>
     </div>
   );
 }
