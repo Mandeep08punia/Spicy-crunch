@@ -1,12 +1,14 @@
 import React from 'react'
 import {Container, Typography,Button,Grid} from '@material-ui/core'
+import useStyles from './styles'
 
 function Cart({cart}) {
-    const isEmpty=!cart.line_items.length;
-    const EmptyCart=()=>{
+    
+    const classes=useStyles();
+    const EmptyCart=()=>(
         <Typography variant="subtitle1">Your Shopping Cart is Empty!</Typography>
-    }
-    const FilledCart=()=>{
+    )
+    const FilledCart=()=>(
         <>
         <Grid container spacing={3}>
             {
@@ -31,12 +33,14 @@ function Cart({cart}) {
             </div>
         </div>
         </>
-    }
+    )
+    if(!cart.line_items)
+    return 'Loading...'
     return (
         <Container>
             <div className={classes.toolbar}/>
-            <Typography className={classes.title}>Shopping Cart</Typography>
-            {isEmpty?<EmptyCart/>:<FilledCart/>}
+            <Typography className={classes.title} variant="h3">Shopping Cart</Typography>
+            {!cart.line_items.length?<EmptyCart/>:<FilledCart/>}
         </Container>
     )
 }
