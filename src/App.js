@@ -38,7 +38,6 @@ function App() {
     fetchCartState();
   },[])
   
-console.log(cart);
   return (
     <Router>
     <div>
